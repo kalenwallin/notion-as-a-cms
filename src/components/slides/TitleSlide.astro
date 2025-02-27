@@ -12,6 +12,6 @@ const { slide } = Astro.props;
 <SlideLayout>
   <section class="flex h-full flex-col items-center justify-center rounded-lg bg-notion-light-default-background p-8">
     <h1 class="text-6xl font-bold text-notion-light-default-text">{slide.data.title}</h1>
-    {slide.data.subtitle && <h2 class="text-3xl font-bold">{slide.data.subtitle}</h2>}
+    {slide.data.subtitle && <h2 class="text-3xl font-bold text-notion-light-yellow-text bg-notion-light-yellow-background">{slide.data.subtitle}</h2>}
   </section>
 </SlideLayout>

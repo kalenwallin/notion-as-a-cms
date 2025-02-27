@@ -48,7 +48,7 @@
 
 html,
 body {
-  @apply m-0 h-full w-full bg-[#121212];
+  @apply m-0 h-full w-full bg-notion-light-default-background text-notion-light-default-text;
 }
 
 @keyframes zoom {

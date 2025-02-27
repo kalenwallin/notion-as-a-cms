@@ -13,10 +13,10 @@ const { Content } = await slide.render();
   <img src={slide.data.image?.src} alt={slide.data.title} class="absolute inset-0 h-full w-full object-cover" />
   {
     !slide.data.hideContent && (
-      <div class="relative z-10 flex h-full flex-col items-center justify-center bg-[#121212] p-4 opacity-60">
-        <div class="prose prose-2xl prose-invert dark:prose-dark">
-          <h2 class="mb-4 text-4xl text-white">{slide.data.title}</h2>
-          <article class="prose prose-invert">
+      <div class="bg-notion-light-default-background relative z-10 flex h-full flex-col items-center justify-center p-4 opacity-60">
+        <div class="prose prose-2xlt text-notion-light-default-text">
+          <h2 class="text-notion-light-default-text mb-4 text-4xl">{slide.data.title}</h2>
+          <article class="prose text-notion-light-default-text">
             <Content />
           </article>
         </div>

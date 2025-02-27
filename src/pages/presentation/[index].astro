@@ -44,7 +44,7 @@ export const prerender = false; // so that we can check which transition is used
     <div class="relative z-30 my-4 flex w-full items-center justify-between">
       {
         prevIndex !== null ? (
-          <a id="prev-slide" class="transition-link text-blue-400" href={`/presentation/${prevIndex}`}>
+          <a id="prev-slide" class="transition-link text-notion-light-default-text" href={`/presentation/${prevIndex}`}>
             Previous
           </a>
         ) : (
@@ -53,7 +53,7 @@ export const prerender = false; // so that we can check which transition is used
       }
       {
         nextIndex !== null ? (
-          <a id="next-slide" class="transition-link text-blue-400" href={`/presentation/${nextIndex}`}>
+          <a id="next-slide" class="transition-link text-notion-light-default-text" href={`/presentation/${nextIndex}`}>
             Next
           </a>
         ) : (

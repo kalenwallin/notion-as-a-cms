@@ -11,7 +11,7 @@ slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <Layout>
-  <h1 class="p-16 text-center text-4xl font-bold text-white">Blast Off With Astro! 🚀</h1>
+  <h1 class="text-notion-light-default-text p-16 text-center text-4xl font-bold">Notion as a CMS</h1>
   <div class="container mx-auto p-12">
     <div class="flex h-full flex-wrap items-center justify-center gap-12">
       {
@@ -31,7 +31,7 @@ slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
       }
     </div>
   </div>
-  <h2 class="pt-16 text-center text-4xl font-bold text-white">Demos</h2>
+  <h2 class="pt-16 text-center text-4xl font-bold text-notion-light-default-text">Demos</h2>
   <div class="container mx-auto p-12">
     <div class="flex h-full flex-wrap items-center justify-center gap-12">
       <DemoPreview title="React" link="/demos/react" />
@@ -54,14 +54,14 @@ slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
     // Get the actual gap size from CSS (12px * 3 = 36px)
     const gapSize = 36;
     const containerPadding = 48; // 12px * 4 for p-12
-    
+
     // Get first card width
     const firstCard = slideButtons[0].getBoundingClientRect();
     const cardWidth = firstCard.width + gapSize;
 
     // Calculate available width accounting for padding
-    const availableWidth = window.innerWidth - (containerPadding * 2);
-    
+    const availableWidth = window.innerWidth - containerPadding * 2;
+
     // Calculate how many cards fit in the available width
     return Math.max(1, Math.floor(availableWidth / cardWidth));
   };
