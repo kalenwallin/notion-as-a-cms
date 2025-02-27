@@ -1,6 +1,51 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+@import "tailwindcss";
+
+@theme {
+  --color-notion-light-default-background: #FFFFFF;
+  --color-notion-light-default-text: #373530;
+  --color-notion-light-gray-background: #F1F1EF;
+  --color-notion-light-gray-text: #787774;
+  --color-notion-light-brown-background: #F3EEEE;
+  --color-notion-light-brown-text: #976D57;
+  --color-notion-light-orange-background: #F8ECDF;
+  --color-notion-light-orange-text: #CC782F;
+  --color-notion-light-yellow-background: #FAF3DD;
+  --color-notion-light-yellow-text: #C29343;
+  --color-notion-light-green-background: #EEF3ED;
+  --color-notion-light-green-text: #548164;
+  --color-notion-light-blue-background: #E9F3F7;
+  --color-notion-light-blue-text: #487CA5;
+  --color-notion-light-purple-background: #F6F3F8;
+  --color-notion-light-purple-text: #8A67AB;
+  --color-notion-light-pink-background: #F9F2F5;
+  --color-notion-light-pink-text: #B35488;
+  --color-notion-light-red-background: #FAECEC;
+  --color-notion-light-red-text: #C4554D;
+  --color-notion-dark-default-background: #191919;
+  --color-notion-dark-default-text: #D4D4D4;
+  --color-notion-dark-gray-background: #252525;
+  --color-notion-dark-gray-text: #9B9B9B;
+  --color-notion-dark-brown-background: #2E2724;
+  --color-notion-dark-brown-text: #A27763;
+  --color-notion-dark-orange-background: #36291F;
+  --color-notion-dark-orange-text: #CB7B37;
+  --color-notion-dark-yellow-background: #372E20;
+  --color-notion-dark-yellow-text: #C19138;
+  --color-notion-dark-green-background: #242B26;
+  --color-notion-dark-green-text: #4F9768;
+  --color-notion-dark-blue-background: #1F282D;
+  --color-notion-dark-blue-text: #447ACB;
+  --color-notion-dark-purple-background: #2A2430;
+  --color-notion-dark-purple-text: #865DBB;
+  --color-notion-dark-pink-background: #2E2328;
+  --color-notion-dark-pink-text: #BA4A78;
+  --color-notion-dark-red-background: #332523;
+  --color-notion-dark-red-text: #BE524B;
+}
+
 html,
 body {
   @apply m-0 h-full w-full bg-[#121212];
@@ -10,6 +55,7 @@ body {
   0% {
     transform: scale(0.5);
   }
+
   100% {
     transform: scale(1);
   }
