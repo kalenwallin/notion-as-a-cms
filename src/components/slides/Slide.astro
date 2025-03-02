@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   slide: CollectionEntry<'slides'>;
+  hideContent: boolean;
 }
 
 async function getSlideType(slide: CollectionEntry<'slides'>) {
@@ -15,13 +16,15 @@ async function getSlideType(slide: CollectionEntry<'slides'>) {
       return (await import('./ImageContentSlide.astro')).default;
     case 'image':
       return (await import('./ImageSlide.astro')).default;
+    case 'image-content-demo':
+      return (await import('./ImageContentDemoSlide.astro')).default;
     default:
       throw new Error(`Unknown slide type: ${slide.data.type}`);
   }
 }
 
-const { slide } = Astro.props;
+const { slide, hideContent } = Astro.props;
 const SlideComponent = await getSlideType(slide);
 ---
 
-<SlideComponent slide={slide} />
+<SlideComponent slide={slide} hideContent={hideContent} />

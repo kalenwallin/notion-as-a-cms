@@ -64,3 +64,75 @@ body {
 .animate-zoom {
   animation: zoom 0.2s ease-out forwards;
 }
+
+strong,
+h2 {
+  @apply bg-notion-light-yellow-background text-notion-light-yellow-text w-fit;
+}
+
+strong a {
+  @apply text-notion-light-yellow-text;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6,
+::marker {
+  @apply text-notion-light-default-text;
+}
+
+blockquote {
+  @apply border-s-notion-light-default-text;
+}
+
+.notion-gray .notion-inline-code {
+  @apply bg-notion-light-gray-background text-notion-light-gray-text;
+}
+
+.notion-header {
+  display: none;
+}
+
+:where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+:where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+  content: none;
+}
+
+.notion-page-scroller,
+.notion-frame,
+.notion-app {
+  height: fit-content !important;
+  min-height: fit-content !important;
+  width: fit-content !important;
+}
+
+.notion-page.notion-page-no-cover {
+  margin-top: 0 !important;
+}
+
+.prose {
+  max-width: 100% !important;
+}
+
+.language-json {
+  font-size: larger !important;
+}
+
+.notion-table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.notion-frame {
+  align-items: flex-start !important;
+}
+
+.notion-title {
+  font-size: 5em !important;
+}
+
+.notion-text {
+  font-size: 2em !important;
+}

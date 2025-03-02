@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import react from '@astrojs/react';
-import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import { readFileSync } from 'fs';
 
@@ -18,7 +17,7 @@ export default defineConfig({
     domains: ['img.youtube.com', 'vimeo.com'],
   },
 
-  integrations: [icon(), react(), svelte(), mdx()],
+  integrations: [icon(), react(), mdx()],
 
   markdown: {
     shikiConfig: {

@@ -3,15 +3,16 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import SlidePreview from '../components/slides/SlidePreview.astro';
 import { fade } from 'astro:transitions';
-import DemoPreview from '@/components/demos/DemoPreview.astro';
 
 const slides = await getCollection('slides');
 slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-// console.log('slides', slides.length, slides);
 ---
 
 <Layout>
-  <h1 class="text-notion-light-default-text p-16 text-center text-4xl font-bold">Notion as a CMS</h1>
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="text-notion-light-default-text pt-16 pr-16 pl-16 text-center text-4xl font-bold">Notion as a CMS</h1>
+    <h2 class="text-center text-3xl font-bold">with React-Notion-X</h2>
+  </div>
   <div class="container mx-auto p-12">
     <div class="flex h-full flex-wrap items-center justify-center gap-12">
       {
@@ -31,14 +32,15 @@ slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
       }
     </div>
   </div>
-  <h2 class="pt-16 text-center text-4xl font-bold text-notion-light-default-text">Demos</h2>
+  <!-- <div class="flex w-full justify-center pt-16">
+    <h1 class="text-notion-light-default-text text-center text-4xl font-bold">Demos</h1>
+  </div>
   <div class="container mx-auto p-12">
     <div class="flex h-full flex-wrap items-center justify-center gap-12">
       <DemoPreview title="React" link="/demos/react" />
-      <DemoPreview title="Svelte" link="/demos/svelte" />
-      <DemoPreview title="React and Svelte" link="/demos/reactandsvelte" />
+      <DemoPreview title="ReactNotionX" link="/demos/react-notion-x" />
     </div>
-  </div>
+  </div> -->
 </Layout>
 
 <script>

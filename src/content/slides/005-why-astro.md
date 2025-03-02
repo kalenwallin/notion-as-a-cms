@@ -1,9 +1,8 @@
 ---
 title: 'What sets Astro apart?'
 type: 'content'
-order: 5
+order: 6
 ---
-
 - **Built for Content** - Optimized for content-rich websites and digital experiences
 - **Server-First Architecture** - Leverages server-side rendering for superior performance
 - **Zero-Config Performance** - Engineered to deliver blazing-fast sites out of the box

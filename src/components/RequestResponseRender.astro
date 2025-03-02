@@ -1,0 +1,69 @@
+---
+import { NotionAPI } from 'notion-client';
+import { NotionRenderer } from 'react-notion-x';
+import { Code } from 'react-notion-x/build/third-party/code';
+import { Collection } from 'react-notion-x/build/third-party/collection';
+import { Equation } from 'react-notion-x/build/third-party/equation';
+import { Modal } from 'react-notion-x/build/third-party/modal';
+import { Pdf } from 'react-notion-x/build/third-party/pdf';
+import { Prism } from '@astrojs/prism';
+import RequestResponseRenderCode from '@/components/RequestResponseRender.astro?raw';
+import 'react-notion-x/src/styles.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'katex/dist/katex.min.css';
+
+const { pageId, image, imageHeight } = Astro.props;
+
+const notion = new NotionAPI();
+const recordMap = await notion.getPage(pageId);
+---
+
+<div class="w-full">
+  <div class="flex flex-row gap-8">
+    <div>GET</div>
+    <div>{pageId}</div>
+  </div>
+  <div class="flex flex-row gap-8">
+    <div>
+      <h3>Notion Screenshot</h3>
+      <div id="image-of-notion">
+        <img class="mt-0 max-h-full rounded border border-gray-400" src={image} />
+      </div>
+    </div>
+    <div class="max-w-2/3 flex-1">
+      <h3>React-Notion-X</h3>
+      <NotionRenderer
+        className="rounded border border-gray-400"
+        recordMap={recordMap}
+        fullPage={true}
+        darkMode={false}
+        components={{
+          Code,
+          Collection,
+          Equation,
+          Modal,
+          Pdf,
+        }}
+      />
+    </div>
+  </div>
+  <div>
+    <h3>Code</h3>
+    <Prism lang="astro" code={RequestResponseRenderCode} />
+  </div>
+  <div>
+    <h3>Response</h3>
+    <Prism lang="json" code={JSON.stringify(recordMap, null, 2)} />
+  </div>
+</div>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.notion-frame').forEach(frame => {
+      let imageOfNotion = document.getElementById('image-of-notion');
+      console.log(frame?.clientHeight, imageOfNotion?.clientHeight);
+      if (frame?.clientHeight ?? 0 < (imageOfNotion?.clientHeight || 0)) {
+        imageOfNotion?.setAttribute('style', `height:${frame.clientHeight}px !important;`);
+      }
+    });
+  });
+</script>

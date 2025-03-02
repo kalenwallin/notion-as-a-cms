@@ -1,0 +1,46 @@
+---
+import { NotionAPI } from 'notion-client';
+import { NotionRenderer } from 'react-notion-x';
+import { Code } from 'react-notion-x/build/third-party/code';
+import { Collection } from 'react-notion-x/build/third-party/collection';
+import { Equation } from 'react-notion-x/build/third-party/equation';
+import { Modal } from 'react-notion-x/build/third-party/modal';
+import { Pdf } from 'react-notion-x/build/third-party/pdf';
+import 'react-notion-x/src/styles.css';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'katex/dist/katex.min.css';
+import Layout from '../layouts/Layout.astro';
+import { Prism } from '@astrojs/prism';
+import code from '@/pages/[index].astro?raw';
+
+const { index } = Astro.params;
+console.log('id', index);
+
+const notion = new NotionAPI();
+const recordMap = await notion.getPage(index!);
+
+export const prerender = false;
+---
+
+<Layout>
+  <div class="z-10 flex h-full w-full flex-col items-center justify-center xl:p-100">
+    <h3>Notion-React-X</h3>
+    <NotionRenderer
+      className="m-4 rounded border border-gray-400"
+      recordMap={recordMap}
+      fullPage={true}
+      darkMode={false}
+      components={{
+        Code,
+        Collection,
+        Equation,
+        Modal,
+        Pdf,
+      }}
+    />
+    <div class="m-4 rounded">
+      <h3>Code for this page</h3>
+      <Prism lang="astro" code={code} class="rounded" />
+    </div>
+  </div>
+</Layout>

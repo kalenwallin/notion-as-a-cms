@@ -7,11 +7,25 @@ interface Props {
 }
 
 const { slide } = Astro.props;
+const title = slide.data.title.split('<');
+if (title.length > 1) {
+  title[1] = title[1].replace('>', '');
+}
 ---
 
 <SlideLayout>
-  <section class="flex h-full flex-col items-center justify-center rounded-lg bg-notion-light-default-background p-8">
-    <h1 class="text-6xl font-bold text-notion-light-default-text">{slide.data.title}</h1>
-    {slide.data.subtitle && <h2 class="text-3xl font-bold text-notion-light-yellow-text bg-notion-light-yellow-background">{slide.data.subtitle}</h2>}
+  <section class="bg-notion-light-default-background flex h-full flex-col items-center justify-center rounded-lg p-8">
+    <h1 class="text-notion-light-default-text text-6xl font-bold xl:text-9xl">
+      {title[0]}<span class="text-notion-light-yellow-text bg-notion-light-yellow-background">{title[1]}</span>{
+        title[2]
+      }
+    </h1>
+    {
+      slide.data.subtitle && (
+        <h2 class="text-notion-light-yellow-text bg-notion-light-yellow-background text-3xl font-bold xl:text-8xl">
+          {slide.data.subtitle}
+        </h2>
+      )
+    }
   </section>
 </SlideLayout>

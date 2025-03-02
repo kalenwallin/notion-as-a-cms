@@ -32,19 +32,23 @@ export const prerender = false; // so that we can check which transition is used
 
 <Layout>
   <BackButton />
-  <div class="z-10 flex h-screen flex-col items-center justify-center px-24 pt-24 pb-16">
+  <div class="z-10 flex h-full w-full flex-col items-center justify-center xl:p-100">
     <div
       id="content"
       class="w-full"
       transition:name={`/presentation/${currentIndex}`}
       transition:animate={isFromHome ? fade({ duration: '1s' }) : slide({ duration: '0.5s' })}
     >
-      <Slide slide={currentSlide} />
+      <Slide slide={currentSlide} hideContent={false} />
     </div>
     <div class="relative z-30 my-4 flex w-full items-center justify-between">
       {
         prevIndex !== null ? (
-          <a id="prev-slide" class="transition-link text-notion-light-default-text" href={`/presentation/${prevIndex}`}>
+          <a
+            id="prev-slide"
+            class="transition-link text-notion-light-default-text hidden"
+            href={`/presentation/${prevIndex}`}
+          >
             Previous
           </a>
         ) : (
@@ -53,7 +57,11 @@ export const prerender = false; // so that we can check which transition is used
       }
       {
         nextIndex !== null ? (
-          <a id="next-slide" class="transition-link text-notion-light-default-text" href={`/presentation/${nextIndex}`}>
+          <a
+            id="next-slide"
+            class="transition-link text-notion-light-default-text hidden"
+            href={`/presentation/${nextIndex}`}
+          >
             Next
           </a>
         ) : (

@@ -3,8 +3,6 @@ import { useState } from 'react';
 export default function ReactDemo() {
   const [count, setCount] = useState(0);
 
-  console.log('ReactDemo rendered');
-
   return (
     <div className="mx-auto flex max-w-md flex-col items-center gap-8 rounded-lg bg-white p-8 shadow-lg">
       <h1 className="text-3xl font-bold text-[#61dafb]">React Counter Demo</h1>

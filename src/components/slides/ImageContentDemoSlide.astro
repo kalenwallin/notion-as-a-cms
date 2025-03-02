@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import RequestResponseRender from '../RequestResponseRender.astro';
+
+interface Props {
+  slide: CollectionEntry<'slides'>;
+  hideContent: boolean;
+}
+
+const { slide, hideContent } = Astro.props;
+const image = slide.data.image!;
+const imageHeight = slide.data.imageHeight || 200;
+const { Content } = await slide.render();
+const title = slide.data.title.split('<');
+if (title.length > 1) {
+  title[1] = title[1].replace('>', '');
+}
+---
+
+<section class="flex aspect-video">
+  <div class="w-full p-8">
+    <div class="prose prose-2xl mb-4 flex flex-col">
+      <h1 class="m-1 mt-0 mb-2 text-5xl xl:text-8xl">
+        {title[0]}<span class="text-notion-light-yellow-text bg-notion-light-yellow-background">{title[1]}</span>{
+          title[2]
+        }
+      </h1>
+      {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 w-fit text-3xl">{slide.data.subtitle}</h2>}
+      <article>
+        {
+          !hideContent && (
+            <RequestResponseRender pageId={slide.data.pageId} image={image.src} imageHeight={imageHeight} />
+          )
+        }
+        <Content />
+      </article>
+    </div>
+  </div>
+</section>

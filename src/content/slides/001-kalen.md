@@ -6,4 +6,8 @@ order: 1
 image: '@/assets/kalen.jpeg'
 ---
 - Developer at [Sandhills Global](https://sandhills.com)
-- I wear a suit everyday
+  - C#/VB.NET
+  - React
+- Personal Dev
+  - Astro
+  - Next.js
