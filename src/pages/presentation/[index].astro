@@ -5,30 +5,22 @@ import Slide from '../../components/slides/Slide.astro';
 import { fade, slide } from 'astro:transitions';
 import BackButton from '@/components/BackButton.astro';
 
-// export async function getStaticPaths() {
-//   const slides = await getCollection('slides');
-//   slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-//   return slides.map((_, index) => ({
-//     params: { index: index.toString() },
-//   }));
-// }
+export async function getStaticPaths() {
+  const slides = await getCollection('slides');
+  slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+  return slides.map((_, index) => ({
+    params: { index: index.toString() },
+    props: { slides },
+  }));
+}
 
 const { index } = Astro.params;
-const slides = await getCollection('slides');
-slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const { slides } = Astro.props;
+
 const currentIndex = parseInt(index!, 10);
 const currentSlide = slides[currentIndex];
 const prevIndex = currentIndex > 0 ? currentIndex - 1 : null;
 const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : null;
-
-// Get the previous page URL
-const referer = Astro.request.headers.get('referer') || ''; // "/" or "/presentation/#"
-const isFromHome = referer.endsWith('/');
-
-// const previousPageIndex = isFromHome ? null : parseInt(referer.split('/').pop() || '0', 10);
-// const slideDirection = previousPageIndex === null ? null : previousPageIndex < currentIndex ? 'left' : 'right';
-
-export const prerender = false; // so that we can check which transition is used
 ---
 
 <Layout>
@@ -38,7 +30,7 @@ export const prerender = false; // so that we can check which transition is used
       id="content"
       class="w-full"
       transition:name={`/presentation/${currentIndex}`}
-      transition:animate={isFromHome ? fade({ duration: '1s' }) : slide({ duration: '0.5s' })}
+      transition:animate={slide({ duration: '0.5s' })}
     >
       <Slide slide={currentSlide} hideContent={false} />
     </div>
