@@ -23,7 +23,7 @@ export const prerender = false;
 
 <Layout>
   <div class="z-10 flex h-full w-full flex-col p-4 2xl:p-100">
-    <h1 class="ml-4 font-semibold 2xl:text-4xl">Notion-React-X</h1>
+    <h1 class="mb-4 ml-4 font-semibold 2xl:text-4xl">React-Notion-X</h1>
     <NotionRenderer
       className="ml-4 rounded border border-gray-400"
       recordMap={recordMap}
@@ -37,7 +37,7 @@ export const prerender = false;
         Pdf,
       }}
     />
-    <div class="m-4 rounded">
+    <div class="m-4 mb-8 rounded">
       <h1 class="font-semibold 2xl:text-4xl">This page's code</h1>
       <Prism lang="astro" code={code} class="rounded" />
     </div>

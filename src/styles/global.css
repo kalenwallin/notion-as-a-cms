@@ -129,10 +129,6 @@ pre[class*="language-"] code[class*="language-"] {
   align-items: flex-start !important;
 }
 
-/* .notion-title {
-  font-size: 5em !important;
+.notion-collection-view-tabs-row {
+  display: none !important;
 }
-
-.notion-text {
-  font-size: 2em !important;
-} */
