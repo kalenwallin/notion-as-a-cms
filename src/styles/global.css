@@ -116,8 +116,8 @@ blockquote {
   max-width: 100% !important;
 }
 
-.language-json {
-  font-size: larger !important;
+pre[class*="language-"] code[class*="language-"] {
+  @apply 2xl:text-2xl;
 }
 
 .notion-table {

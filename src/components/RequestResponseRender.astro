@@ -3,16 +3,12 @@ import { NotionAPI } from 'notion-client';
 import { NotionRenderer } from 'react-notion-x';
 import { Code } from 'react-notion-x/build/third-party/code';
 import { Collection } from 'react-notion-x/build/third-party/collection';
-import { Equation } from 'react-notion-x/build/third-party/equation';
-import { Modal } from 'react-notion-x/build/third-party/modal';
-import { Pdf } from 'react-notion-x/build/third-party/pdf';
 import { Prism } from '@astrojs/prism';
-import RequestResponseRenderCode from '@/components/RequestResponseRender.astro?raw';
+import thisPageCode from '@/components/RequestResponseRender.astro?raw';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
-import 'katex/dist/katex.min.css';
 
-const { pageId, image, imageHeight } = Astro.props;
+const { pageId, image } = Astro.props;
 
 const notion = new NotionAPI();
 const recordMap = await notion.getPage(pageId);
@@ -40,30 +36,17 @@ const recordMap = await notion.getPage(pageId);
         components={{
           Code,
           Collection,
-          Equation,
-          Modal,
-          Pdf,
         }}
       />
     </div>
   </div>
   <div>
-    <h3>Code</h3>
-    <Prism lang="astro" code={RequestResponseRenderCode} />
+    <h3>This page's code</h3>
+    <Prism lang="astro" code={thisPageCode} />
   </div>
   <div>
-    <h3>Response</h3>
+    <h3>Notion Page Response</h3>
     <Prism lang="json" code={JSON.stringify(recordMap, null, 2)} />
   </div>
 </div>
-<script>
-  document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll('.notion-frame').forEach(frame => {
-      let imageOfNotion = document.getElementById('image-of-notion');
-      console.log(frame?.clientHeight, imageOfNotion?.clientHeight);
-      if (frame?.clientHeight ?? 0 < (imageOfNotion?.clientHeight || 0)) {
-        imageOfNotion?.setAttribute('style', `height:${frame.clientHeight}px !important;`);
-      }
-    });
-  });
-</script>
+<script src="@/scripts/imageHeight.js"></script>

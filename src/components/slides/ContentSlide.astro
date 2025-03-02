@@ -11,12 +11,14 @@ const { slide } = Astro.props;
 const { Content } = await render(slide);
 ---
 
-<div class="mb-8">
-  <h1 class="m-1 mt-0 mb-2 text-5xl xl:text-8xl">{slide.data.title}</h1>
-  {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 text-3xl">{slide.data.subtitle}</h2>}
+<div class="mt-4 ml-6">
+  <div class="mb-8">
+    <h1 class="m-1 mt-0 mb-2 text-6xl 2xl:text-8xl">{slide.data.title}</h1>
+    {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 text-3xl">{slide.data.subtitle}</h2>}
+  </div>
+  <article
+    class="prose prose-2xl prose-li:text-3xl 2xl:prose-li:text-4xl prose-p:text-3xl 2xl:prose-p:text-4xl 2xl:prose-h3:text-6xl max-w-none"
+  >
+    <Content />
+  </article>
 </div>
-<article
-  class="prose prose-2xl xl:prose-p:text-5xl xl:prose-h3:text-6xl  max-w-none"
->
-  <Content />
-</article>

@@ -3,9 +3,7 @@ title: 'What is Notion?'
 type: 'content'
 order: 3
 ---
-Notion is a glorified notes app. It has everything in markdown + a lot more.
-
-
+Notion is a glorified notes app. It has a block based editor that contains everything in markdown + a lot more.
 
 Let's take a look at Notion's website to see what it's all about: [notion.com](https://notion.com)
 

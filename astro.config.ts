@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import { readFileSync } from 'fs';
 
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,9 +26,8 @@ export default defineConfig({
     },
   },
 
-  adapter: node({
-    mode: 'standalone'
-  })
+  output: 'server',
+  adapter: vercel()
 });
 
 /**
