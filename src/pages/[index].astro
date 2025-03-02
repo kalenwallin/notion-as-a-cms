@@ -22,10 +22,10 @@ export const prerender = false;
 ---
 
 <Layout>
-  <div class="z-10 flex h-full w-full flex-col items-center justify-center xl:p-100">
-    <h3>Notion-React-X</h3>
+  <div class="z-10 flex h-full w-full flex-col p-4 2xl:p-100">
+    <h1 class="ml-4 font-semibold 2xl:text-4xl">Notion-React-X</h1>
     <NotionRenderer
-      className="m-4 rounded border border-gray-400"
+      className="ml-4 rounded border border-gray-400"
       recordMap={recordMap}
       fullPage={true}
       darkMode={false}
@@ -38,8 +38,12 @@ export const prerender = false;
       }}
     />
     <div class="m-4 rounded">
-      <h3>Code for this page</h3>
+      <h1 class="font-semibold 2xl:text-4xl">This page's code</h1>
       <Prism lang="astro" code={code} class="rounded" />
+    </div>
+    <div class="m-4 rounded">
+      <h1 class="font-semibold 2xl:text-4xl">Notion Page Response</h1>
+      <Prism lang="astro" code={JSON.stringify(recordMap, null, 2)} class="rounded" />
     </div>
   </div>
 </Layout>
