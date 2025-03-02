@@ -6,7 +6,7 @@ interface Props {
   hideContent: boolean;
 }
 
-const { slide } = Astro.props;
+const { slide, hideContent } = Astro.props;
 const image = slide.data.image!;
 const { Content } = await slide.render();
 ---
@@ -16,9 +16,19 @@ const { Content } = await slide.render();
     <img src={image.src} class="h-full w-full object-cover" />
   </div>
   <div class="w-1/2 p-8">
-    <div class="prose prose-2xl prose-li:text-3xl 2xl:prose-li:text-6xl mb-4 flex flex-col">
-      <h1 class="m-1 mt-0 mb-2 text-7xl 2xl:text-9xl">{slide.data.title}</h1>
-      {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 w-fit text-6xl 2xl:text-8xl">{slide.data.subtitle}</h2>}
+    <div
+      class:list={[
+        'prose prose-2xl prose-li:text-3xl mb-4 flex flex-col',
+        !hideContent && '2xl:prose-li:text-6xl',
+        hideContent && 'prose-li:items-start text-left',
+      ]}
+    >
+      <h1 class:list={['m-1 mt-0 mb-2 text-7xl', !hideContent && '2xl:text-9xl']}>{slide.data.title}</h1>
+      {
+        slide.data.subtitle && (
+          <h2 class:list={['m-1 mt-0 mb-0 w-fit text-6xl', !hideContent && '2xl:text-8xl']}>{slide.data.subtitle}</h2>
+        )
+      }
       <article>
         <Content />
       </article>
