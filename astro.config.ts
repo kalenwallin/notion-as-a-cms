@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import react from '@astrojs/react';
-import mdx from '@astrojs/mdx';
 import { readFileSync } from 'fs';
 
 import vercel from '@astrojs/vercel';
@@ -17,7 +16,7 @@ export default defineConfig({
     domains: ['img.youtube.com', 'vimeo.com'],
   },
 
-  integrations: [icon(), react(), mdx()],
+  integrations: [icon(), react()],
 
   markdown: {
     shikiConfig: {
