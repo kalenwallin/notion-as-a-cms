@@ -1,7 +1,7 @@
 ---
 title: 'My Notion as a CMS Websites'
 type: 'content'
-order: 7
+order: 10
 ---
 A look at some of the portfolio websites I've have built using Notion as a CMS
 
