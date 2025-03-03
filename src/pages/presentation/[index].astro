@@ -6,7 +6,8 @@ import { fade, slide } from 'astro:transitions';
 import BackButton from '@/components/BackButton.astro';
 
 export async function getStaticPaths() {
-  const slides = await getCollection('slides');
+  let slides = await getCollection('slides');
+  slides = slides.filter(slide => slide.data.order! > -1);
   slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
   return slides.map((_, index) => ({
     params: { index: index.toString() },
@@ -25,7 +26,7 @@ const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : null;
 
 <Layout>
   <BackButton />
-  <div class="z-10 flex h-full w-full flex-col p-4 2xl:p-100">
+  <div class="z-10 flex h-full w-full flex-col p-4">
     <div
       id="content"
       class="w-full"
@@ -34,12 +35,12 @@ const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : null;
     >
       <Slide slide={currentSlide} hideContent={false} />
     </div>
-    <div class="absolute top-0 right-0 z-30 flex w-full items-end justify-end">
+    <div class="absolute top-4 right-4 z-30 flex w-full items-end justify-end gap-8">
       {
         prevIndex !== null ? (
           <a
             id="prev-slide"
-            class="transition-link text-notion-light-default-text m-4 md:hidden"
+            class="transition-link text-notion-light-default-text md:hidden"
             href={`/presentation/${prevIndex}`}
           >
             Previous
@@ -52,7 +53,7 @@ const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : null;
         nextIndex !== null ? (
           <a
             id="next-slide"
-            class="transition-link text-notion-light-default-text m-4 md:hidden"
+            class="transition-link text-notion-light-default-text md:hidden"
             href={`/presentation/${nextIndex}`}
           >
             Next

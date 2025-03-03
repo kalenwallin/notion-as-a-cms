@@ -4,12 +4,11 @@ type: 'image-content'
 order: 12
 image: '@/assets/qr.png'
 ---
-- This presentation: [https://github.com/nicknisi/astro-talk/blob/main/src/content/slides/029-links.md](https://github.com/nicknisi/astro-talk/blob/main/src/content/slides/029-links.md) (QR code)
-- React Data Fetching Demos: [https://github.com/KevinVandy/react-data-fetching](https://github.com/KevinVandy/react-data-fetching)
-- Kevin's Website GitHub: [https://github.com/KevinVandy/kevinvancott](https://github.com/KevinVandy/kevinvancott)
-- Nick's Website GitHub: [https://github.com/nicknisi/nicknisi.com](https://github.com/nicknisi/nicknisi.com)
+- This presentation: [https://github.com/kalenwallin/notion-as-a-cms](https://github.com/kalenwallin/notion-as-a-cms) (QR code)
+- Notion: [https://www.notion.com/](https://www.notion.com/)
+- React-Notion-X: [https://github.com/NotionX/react-notion-x](https://github.com/NotionX/react-notion-x)
+- My Website GitHub: [https://github.com/kalenwallin/portfolio.v3](https://github.com/kalenwallin/portfolio.v3)
 - [NebraskaJS](https://www.meetup.com/nebraskajs/)
 
   - Meetup: [https://www.meetup.com/nebraskajs](https://www.meetup.com/nebraskajs)
-  - Join the Discord: [https://discord.gg/gTfAYmHx](https://discord.gg/gTfAYmHx)
-- Astro docs: [https://astro.build](https://astro.build)
+  - Join the Discord: [https://discord.gg/YasCjEJVrK](https://discord.gg/YasCjEJVrK)

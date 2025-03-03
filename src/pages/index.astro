@@ -4,7 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import SlidePreview from '../components/slides/SlidePreview.astro';
 import { fade } from 'astro:transitions';
 
-const slides = await getCollection('slides');
+let slides = await getCollection('slides');
+slides = slides.filter(slide => slide.data.order! > -1);
 slides.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
