@@ -4,7 +4,7 @@ import { NotionRenderer } from 'react-notion-x';
 import { Code } from 'react-notion-x/build/third-party/code';
 import { Collection } from 'react-notion-x/build/third-party/collection';
 import { Prism } from '@astrojs/prism';
-import thisPageCode from '@/components/RequestResponseRender.astro?raw';
+import pageCode from '@/components/RequestResponseRender.astro?raw';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 
@@ -42,7 +42,7 @@ const recordMap = await notion.getPage(pageId);
   </div>
   <div>
     <h3>This page's code</h3>
-    <Prism lang="astro" code={thisPageCode} />
+    <Prism lang="astro" code={pageCode} />
   </div>
   <div>
     <h3>Notion Page Record Map</h3>

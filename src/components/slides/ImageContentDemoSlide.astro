@@ -19,18 +19,14 @@ if (title.length > 1) {
 <section class="flex aspect-video">
   <div class="w-full p-8">
     <div class="prose prose-2xl mb-4 flex flex-col">
-      <h1 class:list={['m-1 mt-0 mb-2 text-5xl xl:text-8xl']}>
+      <h1 class:list={['m-1 mt-0 mb-2 text-5xl 2xl:text-8xl']}>
         {title[0]}<span class="text-notion-light-yellow-text bg-notion-light-yellow-background">{title[1]}</span>{
           title[2]
         }
       </h1>
       {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 w-fit text-3xl">{slide.data.subtitle}</h2>}
       <article>
-        {
-          !hideContent && (
-            <RequestResponseRender pageId={slide.data.pageId} image={image.src} />
-          )
-        }
+        {!hideContent && <RequestResponseRender pageId={slide.data.pageId} image={image.src} />}
         <Content />
       </article>
     </div>

@@ -3,14 +3,11 @@ import { NotionAPI } from 'notion-client';
 import { NotionRenderer } from 'react-notion-x';
 import { Code } from 'react-notion-x/build/third-party/code';
 import { Collection } from 'react-notion-x/build/third-party/collection';
-import { Equation } from 'react-notion-x/build/third-party/equation';
-import { Modal } from 'react-notion-x/build/third-party/modal';
-import { Pdf } from 'react-notion-x/build/third-party/pdf';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import Layout from '../layouts/Layout.astro';
 import { Prism } from '@astrojs/prism';
-import code from '@/pages/[index].astro?raw';
+import pageCode from '@/pages/[index].astro?raw';
 
 const { index } = Astro.params;
 console.log('id', index);
@@ -31,15 +28,12 @@ export const prerender = false;
       darkMode={false}
       components={{
         Code,
-        Collection,
-        Equation,
-        Modal,
-        Pdf,
+        Collection
       }}
     />
     <div class="m-4 mb-8 rounded">
       <h1 class="font-semibold 2xl:text-4xl">This page's code</h1>
-      <Prism lang="astro" code={code} class="rounded" />
+      <Prism lang="astro" code={pageCode} class="rounded" />
     </div>
     <div class="m-4 rounded">
       <h1 class="font-semibold 2xl:text-4xl">Notion Page Record Map</h1>
