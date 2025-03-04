@@ -1,7 +1,7 @@
 ---
 title: 'Links'
 type: 'image-content'
-order: 12
+order: 10
 image: '@/assets/qr.png'
 ---
 - This presentation: [https://github.com/kalenwallin/notion-as-a-cms](https://github.com/kalenwallin/notion-as-a-cms) (QR code)

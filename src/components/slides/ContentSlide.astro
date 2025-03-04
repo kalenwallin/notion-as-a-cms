@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, render } from 'astro:content';
-import SlideLayout from './SlideLayout.astro';
 
 interface Props {
   slide: CollectionEntry<'slides'>;
@@ -11,7 +10,7 @@ const { slide } = Astro.props;
 const { Content } = await render(slide);
 ---
 
-<div class="mt-4 ml-6">
+<div class="mt-8 ml-6">
   <div class="mb-8">
     <h1 class="m-1 mt-0 mb-2 text-6xl 2xl:text-8xl">{slide.data.title}</h1>
     {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 text-3xl">{slide.data.subtitle}</h2>}

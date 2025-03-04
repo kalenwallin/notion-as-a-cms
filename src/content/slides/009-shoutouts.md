@@ -1,7 +1,7 @@
 ---
 title: 'Shoutouts'
 type: 'content'
-order: 11
+order: 9
 ---
 Sponsors of NebraskaJS:
 

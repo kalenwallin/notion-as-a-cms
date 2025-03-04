@@ -9,8 +9,7 @@ const slides = defineCollection({
       order: z.number().optional(),
       hideContent: z.boolean().optional(),
       image: image().optional(),
-      pageId: z.string().optional(),
-      imageHeight: z.number().optional(),
+      pageId: z.string().optional()
     }),
 });
 

@@ -9,7 +9,6 @@ interface Props {
 
 const { slide, hideContent } = Astro.props;
 const image = slide.data.image!;
-const imageHeight = slide.data.imageHeight || 200;
 const { Content } = await slide.render();
 const title = slide.data.title.split('<');
 if (title.length > 1) {
@@ -29,7 +28,7 @@ if (title.length > 1) {
       <article>
         {
           !hideContent && (
-            <RequestResponseRender pageId={slide.data.pageId} image={image.src} imageHeight={imageHeight} />
+            <RequestResponseRender pageId={slide.data.pageId} image={image.src} />
           )
         }
         <Content />
