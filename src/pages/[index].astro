@@ -6,8 +6,8 @@ import { Collection } from 'react-notion-x/build/third-party/collection';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import Layout from '../layouts/Layout.astro';
-import { Prism } from '@astrojs/prism';
 import pageCode from '@/pages/[index].astro?raw';
+import { Code as CodeComponent } from 'astro:components';
 
 const { index } = Astro.params;
 console.log('id', index);
@@ -28,16 +28,16 @@ export const prerender = false;
       darkMode={false}
       components={{
         Code,
-        Collection
+        Collection,
       }}
     />
     <div class="m-4 mb-8 rounded">
       <h1 class="font-semibold 2xl:text-4xl">This page's code</h1>
-      <Prism lang="astro" code={pageCode} class="rounded" />
+      <CodeComponent theme="dracula" lang="astro" code={pageCode} class="rounded" />
     </div>
     <div class="m-4 rounded">
       <h1 class="font-semibold 2xl:text-4xl">Notion Page Record Map</h1>
-      <Prism lang="astro" code={JSON.stringify(recordMap, null, 2)} class="rounded" />
+      <CodeComponent theme="dracula" lang="json" code={JSON.stringify(recordMap, null, 2)} class="rounded" />
     </div>
   </div>
 </Layout>

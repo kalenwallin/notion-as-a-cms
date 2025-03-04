@@ -3,10 +3,10 @@ import { NotionAPI } from 'notion-client';
 import { NotionRenderer } from 'react-notion-x';
 import { Code } from 'react-notion-x/build/third-party/code';
 import { Collection } from 'react-notion-x/build/third-party/collection';
-import { Prism } from '@astrojs/prism';
 import pageCode from '@/components/RequestResponseRender.astro?raw';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
+import { Code as CodeComponent } from 'astro:components';
 
 const { pageId, image } = Astro.props;
 
@@ -42,11 +42,11 @@ const recordMap = await notion.getPage(pageId);
   </div>
   <div>
     <h3>This page's code</h3>
-    <Prism lang="astro" code={pageCode} />
+    <CodeComponent theme="dracula" lang="astro" code={pageCode} />
   </div>
   <div>
     <h3>Notion Page Record Map</h3>
-    <Prism lang="json" code={JSON.stringify(recordMap, null, 2)} />
+    <CodeComponent theme="dracula" lang="json" code={JSON.stringify(recordMap, null, 2)} />
   </div>
 </div>
 <script src="@/scripts/imageHeight.js"></script>

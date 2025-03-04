@@ -132,3 +132,15 @@ pre[class*="language-"] code[class*="language-"] {
 .notion-collection-view-tabs-row {
   display: none !important;
 }
+
+pre.astro-code.dracula.rounded {
+  font-size: 0.8333333em;
+  line-height: 1.8;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 0.5rem;
+  padding-top: 1.2em;
+  padding-inline-end: 1.6em;
+  padding-bottom: 1.2em;
+  padding-inline-start: 1.6em;
+}
