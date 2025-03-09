@@ -6,7 +6,7 @@ order: 1
 image: '@/assets/kalen.jpeg'
 ---
 - Developer at [Sandhills Global](https://sandhills.com)
-  - C#/VB.NET
+  - .NET
   - React
 - Personal Dev
   - Astro

@@ -1,16 +1,19 @@
 ---
 title: 'Page Record Map'
 type: 'content'
-order: 4
+order: -5
 ---
 Json representation of a page and its children blocks.
+
 ```javascript
 import { NotionAPI } from 'notion-client';
 const pageId = '1aac0097049980e4b9c7cbe98051a4e3';
 const notion = new NotionAPI();
 const recordMap = await notion.getPage(pageId);
 ```
+
 Record Map:
+
 ```json
 {
   "block": {
