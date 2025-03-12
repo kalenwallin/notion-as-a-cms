@@ -8,7 +8,7 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import { Code as CodeComponent } from 'astro:components';
 
-const { pageId } = Astro.props;
+const { pageId, image } = Astro.props;
 
 const notion = new NotionAPI();
 const recordMap = await notion.getPage(pageId);
@@ -20,6 +20,12 @@ const recordMap = await notion.getPage(pageId);
     <div>{pageId}</div>
   </div>
   <div class="flex flex-row gap-8">
+    <div>
+      <h3>Notion Screenshot</h3>
+      <div id="image-of-notion">
+        <img class="mt-0 max-h-full rounded border border-gray-400" src={image} />
+      </div>
+    </div>
     <div class="max-w-2/3 flex-1">
       <h3>React-Notion-X</h3>
       <NotionRenderer
@@ -43,3 +49,4 @@ const recordMap = await notion.getPage(pageId);
     <CodeComponent theme="dracula" lang="json" code={JSON.stringify(recordMap, null, 2)} />
   </div>
 </div>
+<script src="@/scripts/imageHeight.js"></script>

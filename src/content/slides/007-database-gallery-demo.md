@@ -1,5 +1,5 @@
 ---
-title: 'Block Type: <Database - Gallery View<'
+title: 'Block Type: <Database<'
 type: 'image-content-demo'
 order: 7
 image: '@/assets/block-type-database-gallery.png'

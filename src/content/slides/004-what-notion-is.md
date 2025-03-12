@@ -11,7 +11,7 @@ Notion's structure can be broken down into three main components: Blocks -> Page
 
 * They can be as small as a single character or contain the entire script of Shrek 2.
 
-**Pages** are the containers for your blocks. They can also contain subpages.
+**Pages** are the containers for your blocks. Pages can also be blocks called subpages.
 
 * Subpages are just regular pages but nested within page, creating a hierarchical structure.
 
