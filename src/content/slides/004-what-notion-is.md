@@ -7,13 +7,11 @@ Notion is a block based notes app that contains most of the markdown elements + 
 
 Notion's structure can be broken down into three main components: Blocks -> Pages -> Databases.
 
-**Blocks** are pieces of content like text, images, tables, etc.
+**Blocks** are pieces of content like text and media.
 
-* They can be as small as a single character or contain the entire script of Shrek 2.
+**Pages** are the containers for your blocks. 
 
-**Pages** are the containers for your blocks. Pages can also be blocks called subpages.
-
-* Subpages are just regular pages but nested within page, creating a hierarchical structure.
+* Pages can be nested within each other, creating a hierachical structure.
 
 **Databases** are collections of pages that can be sorted, filtered, or visualized based on properties you define.
 
