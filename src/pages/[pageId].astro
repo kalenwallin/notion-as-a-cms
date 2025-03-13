@@ -6,14 +6,13 @@ import { Collection } from 'react-notion-x/build/third-party/collection';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import Layout from '../layouts/Layout.astro';
-import pageCode from '@/pages/[index].astro?raw';
+import pageCode from '@/pages/[pageId].astro?raw';
 import { Code as CodeComponent } from 'astro:components';
 
-const { index } = Astro.params;
-console.log('id', index);
+const { pageId } = Astro.params;
 
 const notion = new NotionAPI();
-const recordMap = await notion.getPage(index!);
+const recordMap = await notion.getPage(pageId!);
 
 export const prerender = false;
 ---
