@@ -26,7 +26,11 @@ if (title.length > 1) {
       </h1>
       {slide.data.subtitle && <h2 class="m-1 mt-0 mb-0 w-fit text-3xl">{slide.data.subtitle}</h2>}
       <article>
-        {!hideContent && <RequestResponseRender pageId={slide.data.pageId} server:defer />}
+        {!hideContent 
+          && <RequestResponseRender pageId={slide.data.pageId} server:defer>
+                <div slot="fallback">Loading...</div>
+            </RequestResponseRender>
+        }
         <Content />
       </article>
     </div>
